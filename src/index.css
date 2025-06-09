@@ -1,0 +1,201 @@
+*{
+border-style: border-box;
+margin: 0;
+padding: 0;
+font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+body {
+  background: #fffbe9;
+}
+
+header {
+  background-color: #ffe0b2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 170px;
+  box-shadow: 0 2px 12px rgba(223, 131, 1, 0.10);
+  gap: 28px;
+  padding: 0 32px;
+}
+header h4{
+  font-style: italic;
+  font-weight: 400;
+  color: #a05d00;
+  font-size: 1.6rem;
+  letter-spacing: 0.3px;
+}
+header > img{
+height: 140px;
+object-fit: contain;
+border-radius: 45%;
+box-shadow: 0 2px 12px rgba(223, 131, 1, 0.09);
+border: 3px solid #ffe0b2;
+}
+header h1 {
+  font-size: 2.9rem;
+  font-weight: 700;
+  color: #df8301;
+  letter-spacing: 1.5px;
+  margin-bottom: 7px;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+.input-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  padding: 44px 0 44px 0;
+}
+.input-form input{
+  width: 500px;
+  height: 44px;
+  border: 1.5px solid #e0e0e0;
+  color: #333;
+  border-radius: 6px;
+  padding: 0 22px;
+  font-size: 1.25rem;
+  transition: border 0.2s;
+  outline: none;
+}
+.input-form input:hover {
+  border: 1.5px solid #fca62f;
+  background: #fffbf6;
+}
+
+.input-form input::placeholder {
+  font-size: 1.3rem;
+  color: #b88b3a;
+  opacity: 1;
+}
+.add-button {
+  height: 44px;
+  padding: 0px 22px;
+  background: #ff9808;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.1s;
+}
+.add-button:hover {
+  background: #fbb22b;
+}
+
+ .ingredient-section {
+  max-width: 850px;
+  margin: auto;
+  background: #fffdfa;
+  border-radius: 14px;
+  box-shadow: 0 2px 10px rgba(252, 213, 155, 0.4);
+  padding: 24px 44px 44px 44px;
+  text-align: left;
+}
+.ingredient-section h2 {
+  color: #df8301;
+  margin-bottom: 20px;
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 2.3rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+.ingredient-section ul {
+  list-style-type: disc;
+  padding-left: 20px;
+  text-align: left;
+}
+.ingredient-section li {
+  margin-bottom: 12px;
+  font-size: 1.5rem;
+}
+
+.get-recipe {
+  background: #fdd598a4; 
+  border-radius: 14px;
+  box-shadow: 0 2px 12px rgba(255, 152, 8, 0.3);
+  padding: 28px 20px 22px 20px;
+  margin: 30px auto 0 auto;
+  max-width: 580px;
+  text-align: center;
+}
+.get-recipe h3 {
+  color: #d17a00;
+  font-family: 'Times New Roman', Times, serif;
+  margin-bottom: 12px;
+  font-size: 2.0rem;
+  font-weight: 900;
+}
+.get-recipe p {
+  margin: 10px 0 10px 0;
+  line-height: 1.3;
+  font-size: 1.4rem;
+  font-weight: 500;
+}
+
+.recipe-button {
+  background: #ff9808;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-top: 15px;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background 0.2s;
+  box-shadow: 0 2px 8px rgba(255, 152, 8, 0.08);
+}
+.recipe-button:hover {
+  background: #fbb22b;
+}
+
+.suggested-recipe-section {
+  background-color: #fff5e1;
+  background-color: #ffe0b26c;
+  border-radius: 14px;
+  box-shadow: 0 2px 10px rgba(252, 213, 155, 0.5);
+  padding: 32px 24px 24px 24px;
+  margin: 44px auto 0 auto;
+  max-width: 900px;
+  color: #7a4a00;
+  font-size: 1.4rem;
+  line-height: 1.8;
+}
+.suggested-recipe-section h2 {
+  color: #df8301;
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 2.3rem;
+  font-weight: 700;
+  margin-bottom: 1.5px;
+  letter-spacing: 0.5px;
+}
+.suggested-recipe-section ul,
+.suggested-recipe-section ol {
+  margin-left: 24px;
+  margin-bottom: 18px;
+  color: #a05d00;
+}
+.suggested-recipe-section li {
+  margin-bottom: 8px;
+  font-size: 1.3rem;
+  line-height: 1.4;
+}
+.suggested-recipe-section strong {
+  color: #d17a00;
+  font-weight: bold;
+  font-size: 1.6rem;
+}
+.suggested-recipe-section code {
+  background: #ffe0b2;
+  border-radius: 4px;
+  padding: 2px 6px;
+  font-size: 1.2rem;
+  color: #a05d00;
+}
+.suggested-recipe-section p {
+  margin-bottom: 12px;
+  color: #7a4a00;
+}
