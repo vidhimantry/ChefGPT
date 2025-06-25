@@ -27,7 +27,7 @@ export default function Content() {
 
    async function getRecipe() {
         const recipeMarkdown = await getRecipeFromMistral(ingredients);
-        setRecipe(recipeMarkdown || "Sorry, no recipe could be generated.");
+        setRecipe(recipeMarkdown || "Sorry, no recipe could be generated at the moment.");
     }
 
   return (
