@@ -2,7 +2,6 @@
 
 **ChefGPT** is an AI-powered recipe recommendation web app built using **React + Vite**. Users can enter ingredients they have at home, and ChefGPT suggests delicious recipes using an external recipe API.  
 <br>
-🚀 Live Demo: <small>[ChefGPT](https://www.google.com)</small>
 
 ---
 
