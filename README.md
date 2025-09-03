@@ -29,8 +29,8 @@
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/vidhimantry/ChefGPT.git```
-cd chefgpt
+git clone https://github.com/vidhimantry/ChefGPT.git
+cd ChefGPT
 ```
 
 ## 2. Install dependencies
