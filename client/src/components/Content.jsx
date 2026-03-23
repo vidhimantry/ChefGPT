@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from "react";
-import { getRecipeFromMistral } from "../../ai"
 import ReactMarkdown from "react-markdown";
+import { getRecipeFromGemini } from "../ai";
 
 export default function Content() {
   
@@ -26,7 +26,7 @@ export default function Content() {
    }
 
    async function getRecipe() {
-        const recipeMarkdown = await getRecipeFromMistral(ingredients);
+        const recipeMarkdown = await getRecipeFromGemini(ingredients);
         setRecipe(recipeMarkdown || "Sorry, no recipe could be generated at the moment.");
     }
 

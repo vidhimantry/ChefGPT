@@ -1,52 +1,111 @@
 # 🧑‍🍳 ChefGPT
 
-**ChefGPT** is an AI-powered recipe recommendation web app built using **React + Vite**. Users can enter ingredients they have at home, and ChefGPT suggests delicious recipes using an external recipe API.  
-<br>
+AI-powered recipe app using React, Express.js, and Google Gemini 2.0 Flash API.
+
+## 🚀 Quick Start
+
+### Prerequisites
+- Node.js ≥ 18
+- Google Gemini API Key from [aistudio.google.com](https://aistudio.google.com)
+
+### Setup (3 Steps)
+
+**1. Server Setup**
+```bash
+cd server
+npm install
+cp .env.example .env
+# Add your GEMINI_API_KEY to .env
+```
+
+**2. Client Setup**
+```bash
+cd ../client
+npm install
+```
+
+**3. Run Both**
+```bash
+# Terminal 1 - Server (from server/)
+npm run dev
+
+# Terminal 2 - Client (from client/)
+npm run dev
+```
+
+Access app at `http://localhost:5173`
+
+---
+
+## 📡 API Endpoints
+
+### POST `/api/getrecipe`
+```bash
+curl -X POST http://localhost:3000/api/getrecipe \
+  -H "Content-Type: application/json" \
+  -d '{"ingredients": ["chicken", "garlic", "tomato"]}'
+```
+
+Response: `{ "success": true, "recipe": "..." }`
+
+### GET `/api/health`
+```bash
+curl http://localhost:3000/api/health
+```
+
+---
+
+## 📁 Structure
+
+```
+ChefGPT/
+├── client/           # React frontend
+├── server/           # Express backend + Gemini API
+└── README.md
+```
+
+---
+
+## 🔧 Troubleshooting
+
+**Port 3000 in use?**
+```bash
+lsof -i :3000 | grep node | awk '{print $2}' | xargs kill -9
+```
+
+**CORS errors?**
+- Ensure server running on `http://localhost:3000`
+- Check `client/vite.config.js` has proxy set up
+
+**API quota exceeded?**
+- Free tier has limits. Wait ~18 seconds or enable billing at [Google Cloud Console](https://console.cloud.google.com/billing)
+
+**API key not working?**
+- Get new key from https://aistudio.google.com
+- Check `.env` file is in `server/` folder
+- Verify no extra spaces in key
 
 ---
 
 ## 📦 Tech Stack
-- ⚛️ **React** – Frontend library
-- ⚡ **Vite** – Development & build tool
-- 🎨 **CSS** – Styling
-- ☁️ **Vercel** – Deployment platforms
-
----
-## ✨ Features
-
-- 🧠 AI-powered recipe suggestions based on your ingredients  
-- 🍳 Simple and clean React + Vite frontend  
-- ⚡ Fast performance and responsive user interface
-- 🔍 Get recipes recommendations instantly by entering multiple ingredients  
-- 🌐 Uses an external recipe API for up-to-date recipes  
-- 🚀 Easy to deploy on Vercel, Netlify, or other platforms  
-- 🖥️ Works well on desktop and mobile
+- **Frontend**: React, Vite, CSS
+- **Backend**: Express.js, Gemini AI, CORS, Dotenv
 
 ---
 
-## 🛠️ Installation and Setup
-
-### 1. Clone the repository
+## 📝 Commands
 
 ```bash
-git clone https://github.com/vidhimantry/ChefGPT.git
-cd ChefGPT
+# Backend (from server/)
+npm run dev      # Development
+npm start        # Production
+
+# Frontend (from client/)
+npm run dev      # Dev server
+npm run build    # Build for production
 ```
 
-## 2. Install dependencies
-```bash
-npm install
-```
-## 3. Add your API key
-Create a .env file in the root directory and add your API key:
-```bash
-VITE_REACT_APP_HF_ACCESS_TOKEN=your_api_key_here
-```
-Make sure .env is listed in .gitignore so your key isn't pushed to GitHub.
+---
 
-## 4. Start the development server
-```bash
-npm run dev
-```
-The app will be available at <http://localhost:5173> when running the development server.
+**Need help?** Check server terminal logs or verify .env has `GEMINI_API_KEY` set.
 
