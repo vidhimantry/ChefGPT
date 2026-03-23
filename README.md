@@ -1,26 +1,65 @@
 # 🧑‍🍳 ChefGPT
 
-An AI-powered recipe recommendation web app that suggests delicious recipes based on ingredients you have at home. Built with React + Vite frontend and Express.js backend, integrated with Google's Gemini 2.0 Flash API for intelligent recipe generation.
+An AI-powered full-stack web application that generates personalized recipes based on ingredients you have at home. ChefGPT leverages Google's Gemini AI to provide intelligent, real-time recipe suggestions with a fast and responsive user interface.
+
+---
+
+## 🌐 Live Demo: [ChefGPT](https://chefgpt-vidhi.vercel.app/)
+
+---
+
+## 🚀 Highlights
+
+- Built a full-stack AI-powered web application using React and Express.js  
+- Integrated Google Gemini API for real-time, dynamic recipe generation  
+- Designed and developed a RESTful backend using Node.js and Express.js with modular routing and controller-service architecture  
+- Implemented RESTful APIs for efficient client-server communication  
+- Deployed the application using Vercel (frontend) and Render (backend)  
+- Optimized application performance and ensured responsive UI across devices  
+---
+
+## 🏗️ Architecture
+
+```text
+Frontend (React - Vercel)
+   ↓
+Backend API (Express - Render)
+   ↓
+Google Gemini API
+```
+---
 
 ## 📦 Tech Stack
 
-⚛️ **React** – Frontend library  
-⚡ **Vite** – Development & build tool  
-🎨 **CSS** – Styling  
-🟢 **Node.js** – Runtime environment  
-⚙️ **Express.js** – Backend framework  
-🤖 **Google Gemini AI** – Recipe generation engine  
-☁️ **Vercel** – Deployment platform
+- ⚛️ **React** – Frontend library  
+- ⚡ **Vite** – Development & build tool  
+- 🎨 **CSS** – Styling  
+- 🟢 **Node.js** – Runtime environment  
+- ⚙️ **Express.js** – Backend framework  
+- 🤖 **Google Gemini AI** – Recipe generation engine  
+- ☁️ **Vercel** – Deployment platform
+---
 
 ## ✨ Features
 
-🧠 **AI-powered recipe suggestions** based on your ingredients  
-🍳 **Simple and clean React + Vite frontend**  
-⚡ **Fast performance and responsive user interface**  
-🔍 **Get recipe recommendations instantly** by entering multiple ingredients  
-🌐 **Real-time API integration** with Gemini for smart suggestions  
-🚀 **Production-ready** and easy to deploy on Vercel or other platforms  
-🖥️ **Mobile-friendly** design that works on desktop and mobile
+- 🧠 **AI-powered recipe suggestions** based on your ingredients  
+- 🍳 **Simple and clean React + Vite frontend**  
+- ⚡ **Fast performance and responsive user interface**  
+- 🔍 **Get recipe recommendations instantly** by entering multiple ingredients  
+- 🌐 **Real-time API integration** with Gemini for smart suggestions  
+- 🚀 **Production-ready** and easy to deploy on Vercel or other platforms  
+- 🖥️ **Mobile-friendly** design that works on desktop and mobile
+
+---
+
+## 📸 Screenshots
+
+<p align="center">
+  <img src="./assets/home.png" width="45%" />
+  <img src="./assets/recipe.png" width="45%" />
+</p>
+
+---
 
 ## 📁 Project Structure
 
@@ -67,7 +106,6 @@ cd ChefGPT
 ```bash
 cd server
 npm install
-cp .env.example .env
 # Add your GEMINI_API_KEY to .env
 ```
 
@@ -96,57 +134,6 @@ Access the app at `http://localhost:5173`
 
 ---
 
-## 📡 API Endpoints
-
-### POST `/api/getrecipe`
-Get recipe suggestions based on ingredients.
-
-```bash
-curl -X POST http://localhost:3000/api/getrecipe \
-  -H "Content-Type: application/json" \
-  -d '{"ingredients": ["chicken", "garlic", "tomato"]}'
-```
-
-**Response:**
-```json
-{ "success": true, "recipe": "..." }
-```
-
-### GET `/api/health`
-Health check endpoint.
-
-```bash
-curl http://localhost:3000/api/health
-```
-
----
-
-## 🔧 Troubleshooting
-
-**Port 3000 or 5173 in use?**
-```bash
-# Kill process on port 3000
-lsof -i :3000 | grep node | awk '{print $2}' | xargs kill -9
-
-# Kill process on port 5173
-lsof -i :5173 | grep node | awk '{print $2}' | xargs kill -9
-```
-
-**CORS errors?**
-- Ensure server is running on `http://localhost:3000`
-- Check `client/vite.config.js` has proxy set up
-
-**API key not working?**
-- Get a new key from [aistudio.google.com](https://aistudio.google.com)
-- Check `.env` file is in `server/` folder (not root)
-- Verify no extra spaces in the API key
-
-**Still not working?**
-- Check server terminal logs for error details
-- Verify `.env` has `GEMINI_API_KEY` set correctly
-
----
-
 ## 📝 Development Commands
 
 ```bash
@@ -164,17 +151,32 @@ npm run preview  # Preview production build locally
 
 ## 🚀 Deployment
 
-### Deploy Frontend on Vercel
-```bash
-cd client
-npm run build
-vercel deploy --prod
-```
+### Frontend (Vercel)
+- Root directory: `client`
+- Auto-deploy via GitHub
 
-### Deploy Backend on Vercel (or Railway, Heroku, etc.)
-Ensure `GEMINI_API_KEY` is set as an environment variable in your hosting platform.
+### Backend (Render)
+- Root directory: `server`
+- Set environment variables in dashboard
 
 ---
 
-**Need help?** Check the server or client terminal logs, or verify your `.env` configuration.
+## 🔮 Future Improvements
+
+- 🔐 User authentication  
+- ❤️ Save favorite recipes  
+- 🖼️ AI-generated food images  
+- 🎨 Enhanced UI with animations  
+- 📊 Recipe history tracking  
+
+---
+
+## 👩‍💻 Author
+
+**Vidhi Mantry**  
+
+- 🔗 GitHub: [vidhimantry](https://github.com/vidhimantry)  
+- 💼 LinkedIn: [Vidhi Mantry](https://linkedin.com/in/vidhi-mantry)  
+
+---
 
