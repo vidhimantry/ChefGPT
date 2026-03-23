@@ -1,6 +1,6 @@
 export async function getRecipeFromGemini(ingredientsArr) {
   try {
-    const response = await fetch("/api/getrecipe", {
+    const response = await fetch("https://chefgpt-7k1n.onrender.com/api/getrecipe", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
