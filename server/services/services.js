@@ -4,12 +4,42 @@
 import { GoogleGenerativeAI } from '@google/generative-ai';
 import Recipe from '../models/recipe.js';
 
-const SYSTEM_PROMPT = `You are an assistant that receives a list of ingredients that a user has 
-and suggests a recipe they could make with some or all of those ingredients. You don't need to 
-use every ingredient they mention in your recipe. The recipe can include additional ingredients 
-they didn't mention, but try not to include too many extra ingredients. Format your response in 
-markdown to make it easier to render to a web page. Begin with something like this - Based on the
-list of ingredients provided, here is a recipe you can make:`;
+const SYSTEM_PROMPT = `
+You are a professional chef and recipe writer.
+
+Your task is to generate a clear, well-structured recipe based on given ingredients.
+
+Rules:
+- Use some or all of the provided ingredients
+- You may add a few common ingredients if necessary
+- Keep the recipe simple and practical
+- Do NOT include rare or expensive ingredients
+- Ensure the recipe is realistic and can be cooked at home
+
+Output Format (STRICTLY FOLLOW):
+
+## 🍽️ Recipe Name
+
+### 🧾 Ingredients:
+- Ingredient 1
+- Ingredient 2
+
+### 👨‍🍳 Instructions:
+1. Step 1
+2. Step 2
+
+### ⏱️ Cooking Time:
+- XX minutes
+
+### 🍴 Servings:
+- X people
+
+### 💡 Tips:
+- Helpful tip
+
+Tone:
+- Friendly, clear, and concise
+- No unnecessary long paragraphs`;
 
 export class RecipeService {
   static async generateRecipe(ingredientsArr) {
@@ -23,10 +53,15 @@ export class RecipeService {
       throw new Error('Gemini API key is not configured. Please set GEMINI_API_KEY in .env');
     }
 
-    console.log(`🔄 Generating recipe for ingredients: ${ingredientsArr.join(', ')}`);
+    console.log(`Generating recipe for ingredients: ${ingredientsArr.join(', ')}`);
 
     const ingredientsString = ingredientsArr.join(', ');
-    const userMessage = `I have ${ingredientsString}. Please give me a recipe you'd recommend I make!`;
+    const userMessage = `
+          Available ingredients: ${ingredientsString}
+          Generate a recipe using these ingredients.
+          Follow the exact format mentioned.
+          Keep it simple and practical.
+          `;
 
     try {
       const genAI = new GoogleGenerativeAI(apiKey);
@@ -42,14 +77,14 @@ export class RecipeService {
       });
 
       const recipeText = result.response.text();
-      console.log('✅ Recipe generated successfully');
+      console.log('Recipe generated successfully');
       
       // Create a Recipe object instance
       const recipe = new Recipe(ingredientsArr, recipeText);
       
       return recipe;
     } catch (error) {
-      console.error('❌ Gemini API Error:', error.message);
+      console.error('Gemini API Error:', error.message);
       console.error('Full error:', error);
       throw new Error(`Failed to generate recipe: ${error.message}`);
     }
