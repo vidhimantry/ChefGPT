@@ -17,7 +17,7 @@ const PORT = process.env.PORT || 3000
 
 // Verify API key is loaded
 if (!process.env.GEMINI_API_KEY) {
-  console.error('❌ ERROR: GEMINI_API_KEY is not set in .env file')
+  console.error('Error: GEMINI_API_KEY is not set in .env file')
   process.exit(1)
 }
 
@@ -47,7 +47,7 @@ app.use((req, res) => {
 
 // Error handler
 app.use((err, req, res, next) => {
-  console.error('🚨 Server Error:', err)
+  console.error('Server Error:', err)
   res.status(500).json({ 
     success: false,
     error: err.message || 'Internal server error' 
@@ -55,7 +55,7 @@ app.use((err, req, res, next) => {
 })
 
 app.listen(PORT, () => {
-  console.log(`🚀 ChefGPT server running on http://localhost:${PORT}`)
-  console.log(`📝 API endpoint: http://localhost:${PORT}/api/getrecipe`)
-  console.log(`✅ GEMINI_API_KEY is configured`)
+  console.log(`ChefGPT server running on http://localhost:${PORT}`)
+  console.log(`API endpoint: http://localhost:${PORT}/api/getrecipe`)
+  console.log(`GEMINI_API_KEY is configured`)
 })
